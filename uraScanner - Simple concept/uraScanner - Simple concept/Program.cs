@@ -110,7 +110,7 @@
                 void printUser( )
         {
             @this.consolePrint_Color( $"{Environment.UserName}", ConsoleColor.Green, false );
-            @this.consolePrint_Color( "@RegScanner", ConsoleColor.Red, false );
+            @this.consolePrint_Color( "@uraS", ConsoleColor.Red, false );
             @this.consolePrint_Color( ":", ConsoleColor.White, false );
             @this.consolePrint_Color( "~", ConsoleColor.Cyan, false );
             @this.consolePrint_Color( "$", ConsoleColor.DarkMagenta, false );
