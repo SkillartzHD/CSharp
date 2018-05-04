@@ -96,8 +96,7 @@
                         }
                     default:
                         {
-                            Print.consoleColor
-                            (
+                            Print.consoleColor(
                                     "\nCommand doesn't exist. Please write <help> to see the available Commands.",
                                     ConsoleColor.Red,
                                     true
