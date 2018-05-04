@@ -1,10 +1,10 @@
-﻿namespace uraScanner___Simple_concept
+﻿namespace uraScanner
 {
     using System;
 
     class AvailableScans
     {
-        [Flags]
+        [ Flags ]
         public enum Scan
         {
             ModuleInjection = 1,

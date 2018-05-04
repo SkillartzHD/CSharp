@@ -12,11 +12,10 @@ class ModuleInjection
     public static List< string >    getCheckedProcess
                               =>    possibleProcesses.ToList();
 
-    private readonly static
-                string moduleInjectionPath = $"{Path.GetDirectoryName( Assembly.GetEntryAssembly().Location)}\\ModuleInjection.txt";
+    private readonly static string moduleInjectionPath = 
+        $"{Path.GetDirectoryName(Assembly.GetEntryAssembly().Location)}\\ModuleInjection.txt";
 
-    private static 
-            string[] possibleProcesses = new string[]
+    private static string[] possibleProcesses =
     {
                 "iexplorer",
                 "Chrome",
@@ -35,8 +34,7 @@ class ModuleInjection
                 "dasHost"
     };
 
-    public static 
-            void scanModules( )
+    public static void scanModules( )
     {
         try
         {
@@ -44,7 +42,7 @@ class ModuleInjection
 
             foreach ( var _process in possibleProcesses )
             {
-                @this.consolePrint_Color( $"Process : {_process}", ConsoleColor.Green, true );
+                Print.consoleColor( $"Process : {_process}", ConsoleColor.Green, true );
 
                 foreach ( var eachProcess in Process.GetProcessesByName( _process ) )
                 {
@@ -52,7 +50,7 @@ class ModuleInjection
                     {
                         var moduleFileName  =   eachProcess.Modules[i].FileName;
                         if ( buildStr.Contains( checkInjection( moduleFileName ) ) )
-                            @this.consolePrint_Color(
+                            Print.consoleColor(
                                                 $"{_process} | {moduleFileName} | [Id:{eachProcess.Id}]",
                                                 ConsoleColor.Red,
                                                 true
@@ -60,26 +58,25 @@ class ModuleInjection
                     }
                 }
 
-                @this.consolePrint_Color( $"End Scan for : {_process}", ConsoleColor.Green, true );
+                Print.consoleColor( $"End Scan for : {_process}", ConsoleColor.Green, true );
             }
         }
         catch ( Exception ex )
         {
-            @this.consolePrint_Color( $"Error : {ex.Message}", ConsoleColor.Magenta, true );
+            Print.consoleColor( $"Error : {ex.Message}", ConsoleColor.Magenta, true );
         }
     }
 
-    private static
-            string checkInjection( string input )
+    private static string checkInjection( string input )
     {
         StringBuilder stringBuilder = new StringBuilder();
 
         using ( MD5CryptoServiceProvider md5 = new MD5CryptoServiceProvider() )
         using ( FileStream inputStream = new FileStream( input, FileMode.Open, FileAccess.Read, FileShare.Read, 8192 ) )
         {
-            foreach ( var @bytes in md5.ComputeHash( inputStream ) )
+            foreach ( var bytes in md5.ComputeHash( inputStream ) )
             {
-                stringBuilder.Append( @bytes.ToString( "X2" ) );
+                stringBuilder.Append( bytes.ToString( "X2" ) );
             }
         }
 

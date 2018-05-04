@@ -49,7 +49,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RegisterProgram.cs" />
     <Compile Include="Run.cs" />
-    <Compile Include="_this.cs" />
+    <Compile Include="Print.cs" />
     <Compile Include="ScanOptions\ModuleInjection.cs" />
     <Compile Include="ScanOptions\StartupScan.cs" />
   </ItemGroup>

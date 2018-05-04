@@ -1,120 +1,124 @@
-﻿namespace uraScanner___Simple_concept
+﻿namespace uraScanner
 {
     using System;
 
     class Program
     {
-        static void Main( string[] args )
-        {
-
-            @this.consolePrint_Color
+        private static void Main( string[] args )
+        {           
+            Print.consoleColor
             (
-                $"\n\n{@this.tabSpace}{Registered.Name}\n" + 
-                    $"{@this.tabSpace}{Registered.Version}\n" + 
-                    $"{@this.tabSpace}{nameof( Registered.Author )} : {Registered.Author}\n",
+                $"\n\n{Print.tabSpace}{Registered.Name}\n" + 
+                    $"{Print.tabSpace}{Registered.Version}\n" + 
+                    $"{Print.tabSpace}{nameof( Registered.Author )} : {Registered.Author}\n",
 
                 ConsoleColor.Gray,
                 true
             );
 
-            @this.consolePrint_Color(
+            Print.consoleColor(
                 $"\nYo {Environment.UserName}!, write <help> to see the available commands.\n",
                 ConsoleColor.Gray,
-                true
+                false
             );
 
-            @return:
-            {
-                printUser();
-                string inputArgument = Console.ReadLine().ToLower();
+            printUser();
 
+            string inputArgument;
+            while ( ( inputArgument = Console.ReadLine().ToLower() ) != "exit" )
+            {
                 switch ( inputArgument )
                 {
-                    case "exit": return;
-
                     case
                         "help":
                         {
-                            @this.consolePrint_Color( "\nWrite <scan> to start the full scan.", ConsoleColor.Blue, true );
-                            @this.consolePrint_Color( "Write <scanreg> to start the startup scan.", ConsoleColor.Blue, true );
-                            @this.consolePrint_Color( "Write <scaninject> to start module injection scan.", ConsoleColor.Blue, true );
-                            @this.consolePrint_Color( "Write <arg> to see the checked arguments used.", ConsoleColor.Blue, true );
-                            @this.consolePrint_Color( "Write <regarg> to see the checked path.", ConsoleColor.Blue, true );
-                            @this.consolePrint_Color( "Write <modules> to see checked processes in Module Injection option.", ConsoleColor.Blue, true );
-                            @this.consolePrint_Color( "Write <exit> to quit the program.\n", ConsoleColor.Blue, true );
-                            goto @return;
+                            Print.consoleColor( "\nWrite <scan> to start the full scan.", ConsoleColor.Blue, true );
+                            Print.consoleColor( "Write <scanreg> to start the startup scan.", ConsoleColor.Blue, true );
+                            Print.consoleColor( "Write <scaninject> to start module injection scan.", ConsoleColor.Blue, true );
+                            Print.consoleColor( "Write <arg> to see the checked arguments used.", ConsoleColor.Blue, true );
+                            Print.consoleColor( "Write <regarg> to see the checked path.", ConsoleColor.Blue, true );
+                            Print.consoleColor( "Write <modules> to see checked processes in Module Injection option.", ConsoleColor.Blue, true );
+                            Print.consoleColor( "Write <exit> to quit the program.\n", ConsoleColor.Blue, true );
+                            printUser();
+                            break;
                         }
                     case
                         "scan":
                         {
                             Run.runScan( AvailableScans.Scan.ALL );
-                            goto @return;
+                            printUser();
+                            break;
                         }
                     case
                         "scanreg":
                         {
                             Run.runScan( AvailableScans.Scan.RegistryScan );
-                            goto @return;
+                            printUser();
+                            break;
                         }
                     case
                         "scaninject":
                         {
                             Run.runScan( AvailableScans.Scan.ModuleInjection );
-                            goto @return;
+                            printUser();
+                            break;
                         }
                     case
                         "regarg":
                         {
-                            @this.consolePrint_Color(
+                            Print.consoleColor(
                                     string.Join( "\n", StartupScan.getExtraArg ),
                                     ConsoleColor.Gray,
                                     true
                             );
-                            goto @return;
+                            printUser();
+                            break;
                         }
                     case
                         "modules":
                         {
-                            @this.consolePrint_Color(
+                            Print.consoleColor(
                                     string.Join( "\n", ModuleInjection.getCheckedProcess ),
                                     ConsoleColor.Gray,
                                     true
                             );
-                            goto @return;
+                            printUser();
+                            break;
                         }
                     case
                         "reg":
                         {
-                            @this.consolePrint_Color( 
+                            Print.consoleColor(
                                         string.Join( "\n", StartupScan.getRegSub ),
                                         ConsoleColor.Gray,
-                                        true 
+                                        true
                             );
-                            goto @return;
+                            printUser();
+                            break;
                         }
                     default:
                         {
-                            @this.consolePrint_Color
+                            Print.consoleColor
                             (
                                     "\nCommand doesn't exist. Please write <help> to see the available Commands.",
                                     ConsoleColor.Red,
                                     true
                             );
-                            goto @return;
+                            printUser();
+                            break;
                         }
                 }
             }
         }
 
-        private static
-                void printUser( )
+        private static void printUser( )
         {
-            @this.consolePrint_Color( $"{Environment.UserName}", ConsoleColor.Green, false );
-            @this.consolePrint_Color( "@uraS", ConsoleColor.Red, false );
-            @this.consolePrint_Color( ":", ConsoleColor.White, false );
-            @this.consolePrint_Color( "~", ConsoleColor.Cyan, false );
-            @this.consolePrint_Color( "$", ConsoleColor.DarkMagenta, false );
-            @this.consolePrint_Color( " ", ConsoleColor.White, false );
+            Print.consoleColor( $"{Environment.UserName}", ConsoleColor.Green, false );
+            Print.consoleColor( "@uraS", ConsoleColor.Red, false );
+            Print.consoleColor( ":", ConsoleColor.White, false );
+            Print.consoleColor( "~", ConsoleColor.Cyan, false );
+            Print.consoleColor( "$", ConsoleColor.DarkMagenta, false );
+            Print.consoleColor( " ", ConsoleColor.White, false );
         }
     }
 }

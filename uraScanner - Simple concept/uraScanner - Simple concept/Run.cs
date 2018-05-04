@@ -1,12 +1,11 @@
 ﻿using System;
-using uraScanner___Simple_concept;
+using uraScanner;
 
 class Run
 {
-    public static
-           void runScan( AvailableScans.Scan chosenScan )
+    public static void runScan( AvailableScans.Scan chosenScan )
     {
-        @this.consolePrint_Color( "\n Scan started", ConsoleColor.Green, true );
+        Print.consoleColor( "\n Scan started", ConsoleColor.Green, true );
 
         switch ( chosenScan )
         {
@@ -31,6 +30,6 @@ class Run
                 }
         }
 
-        @this.consolePrint_Color( "\n\n Scan Completed. \n", ConsoleColor.Green, true );
+        Print.consoleColor( "\n\n Scan Completed. \n", ConsoleColor.Green, true );
     }
 }

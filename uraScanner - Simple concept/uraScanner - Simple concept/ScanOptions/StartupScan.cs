@@ -9,13 +9,12 @@ class StartupScan
                               => regScanPath.ToList();
 
     public static List<string> getExtraArg
-                              => Enumerable.Range( 0, extraArguments.GetLength( 0 ) )
-                                           .Select( c => extraArguments[c, 0] )
-                                           .ToList( ) 
+                            => Enumerable.Range( 0, extraArguments.GetLength( 0 ) )
+                                         .Select( c => extraArguments[c, 0] )
+                                         .ToList( ) 
     ;
 
-    private readonly static
-                string[ ] regScanPath   =
+    private readonly static string[ ] regScanPath   =
         {
                 "SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run",
                 "SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\RunOnce",
@@ -26,8 +25,7 @@ class StartupScan
                 "SOFTWARE\\Wow6432\\Microsoft\\Windows NT\\CurrentVersion\\Winlogon"
         };
 
-    private static readonly
-                string[ , ] extraArguments =
+    private static readonly string[ , ] extraArguments =
         {
                { "\"\""             , "5" },
                { ", explorer.exe"   , "70" },
@@ -49,8 +47,7 @@ class StartupScan
         };
 
 
-    public static
-           void scanRegistry( )
+    public static void scanRegistry( )
     {
         foreach ( var regKey in regScanPath )
         {
@@ -68,16 +65,16 @@ class StartupScan
                         var getVal = reg.GetValue( valueNames[ j ] ).ToString();
                         if ( getVal.Contains( extraArguments[k, 0] ) )
                         {
-                            @this.consolePrint_Color(
+                            Print.consoleColor(
                                         $"\n Found : {getVal.ToString()}",
                                         ConsoleColor.Red,
                                         false
                             );
-                            @this.consolePrint_Color( $" | ", ConsoleColor.Magenta, false );
-                            @this.consolePrint_Color( $"Found : {extraArguments[k, 0]}", ConsoleColor.Gray, false );
-                            @this.consolePrint_Color( $" | ", ConsoleColor.Yellow, false );
-                            @this.consolePrint_Color( "Detection rate : ", ConsoleColor.White, false );
-                            @this.consolePrint_Color(
+                            Print.consoleColor( $" | ", ConsoleColor.Magenta, false );
+                            Print.consoleColor( $"Found : {extraArguments[k, 0]}", ConsoleColor.Gray, false );
+                            Print.consoleColor( $" | ", ConsoleColor.Yellow, false );
+                            Print.consoleColor( "Detection rate : ", ConsoleColor.White, false );
+                            Print.consoleColor(
                                         $"[{int.Parse( extraArguments[k, 1] )}%]",
                                         ConsoleColor.Green,
                                         true

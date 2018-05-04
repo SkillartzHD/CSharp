@@ -1,6 +1,0 @@
-c:\users\anass - spawner\documents\visual studio 2015\Projects\uraScanner - Simple concept\uraScanner - Simple concept\bin\Debug\uraScanner - Simple concept.exe.config
-c:\users\anass - spawner\documents\visual studio 2015\Projects\uraScanner - Simple concept\uraScanner - Simple concept\obj\Debug\uraScanner - Simple concept.csprojResolveAssemblyReference.cache
-c:\users\anass - spawner\documents\visual studio 2015\Projects\uraScanner - Simple concept\uraScanner - Simple concept\bin\Debug\uraScanner - Simple concept.exe
-c:\users\anass - spawner\documents\visual studio 2015\Projects\uraScanner - Simple concept\uraScanner - Simple concept\bin\Debug\uraScanner - Simple concept.pdb
-c:\users\anass - spawner\documents\visual studio 2015\Projects\uraScanner - Simple concept\uraScanner - Simple concept\obj\Debug\uraScanner - Simple concept.exe
-c:\users\anass - spawner\documents\visual studio 2015\Projects\uraScanner - Simple concept\uraScanner - Simple concept\obj\Debug\uraScanner - Simple concept.pdb
