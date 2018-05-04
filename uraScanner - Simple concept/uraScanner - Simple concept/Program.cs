@@ -10,7 +10,6 @@
                 $"\n\n{Print.tabSpace}{Registered.Name}\n" + 
                     $"{Print.tabSpace}{Registered.Version}\n" + 
                     $"{Print.tabSpace}{nameof( Registered.Author )} : {Registered.Author}\n",
-
                 ConsoleColor.Gray,
                 true
             );
