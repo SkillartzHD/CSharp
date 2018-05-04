@@ -69,10 +69,10 @@ class ModuleInjection
 
     private static string checkInjection( string input )
     {
-        StringBuilder stringBuilder = new StringBuilder();
+        var stringBuilder = new StringBuilder();
 
-        using ( MD5CryptoServiceProvider md5 = new MD5CryptoServiceProvider() )
-        using ( FileStream inputStream = new FileStream( input, FileMode.Open, FileAccess.Read, FileShare.Read, 8192 ) )
+        using ( var md5 = new MD5CryptoServiceProvider() )
+        using ( var inputStream = new FileStream( input, FileMode.Open, FileAccess.Read, FileShare.Read, 8192 ) )
         {
             foreach ( var bytes in md5.ComputeHash( inputStream ) )
             {
